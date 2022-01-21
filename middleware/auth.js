@@ -6,7 +6,7 @@ module.exports = function(req,res,next){
     console.log(token);
     //revisar si no hay token
     if(!token){
-        return res.status(401).json({msg: 'No hay token,oermiso no valido'});
+        return res.status(401).json({msg: 'No hay token, permiso no valido'});
     }
     //validar el token
 

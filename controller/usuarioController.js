@@ -53,3 +53,55 @@ exports.crearUsuario = async  (req,res) => {
         res.status(400).send('Hubo un error');
     }
 }
+
+
+exports.perfilcompleto = async  (req,res) => {
+  //revisar si hay errores
+
+  
+  const errores = validationResult(req);
+  
+    //extraer email y password
+    const { phone,sex,genre,obj,cm,kg,_id } = req.body;
+    //console.log(req.body)
+
+    console.log(_id)
+    let datosActualizados = {}
+    if(req.body){
+        datosActualizados.telefono = phone;
+        datosActualizados.sexo = sex;
+        datosActualizados.genero = genre;
+        datosActualizados.meta = obj;
+        datosActualizados.peso = cm;
+        datosActualizados.altura = kg;
+        datosActualizados.perfil_completo = true;
+
+    }
+
+    try {
+        //revisar que el usuario sea unico
+          console.log(_id)
+          let usuario = await Usuario.findOne({ _id });
+          if(usuario.perfilcompleto === true){
+            return res
+              .status(400)
+              .json({ msg: "El perfil ya esta completado" });
+          }
+        
+          try{
+            usuario = await Usuario.findByIdAndUpdate({ _id: _id }, { $set : datosActualizados}, { new: true });
+            //console.log(datosActualizados)
+          }catch(err){
+            console.log(err)
+          }
+          
+          console.log(usuario);
+          
+          res.status(200).json( usuario );
+
+          
+        } catch (error) {
+        console.log(error);
+        res.status(400).send('Hubo un error');
+    }
+}

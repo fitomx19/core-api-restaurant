@@ -29,7 +29,19 @@ const UsuariosSchema = mongoose.Schema({
     type: Number,
     trim: true
   },
+  telefono: {
+    type: Number,
+    trim: true
+  },
   altura:{
+    type: Number,
+    trim: true
+  },
+  sexo:{
+    type: Number,
+    trim: true
+  },
+  genero:{
     type: Number,
     trim: true
   },

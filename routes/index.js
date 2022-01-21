@@ -8,7 +8,7 @@ const router = express.Router();
 
 
 
-router.post('/finalizarregistro', (req,res)=>{
+router.post('/pogo', (req,res)=>{
     console.log(req.body);
 })
 

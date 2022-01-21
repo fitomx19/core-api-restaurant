@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const usuarioController = require('../controller/usuarioController');
+const auth = require('../middleware/auth');
 
 const { check} = require('express-validator');
 //Crea un usuario
@@ -17,4 +18,20 @@ router.post(
   ],
   usuarioController.crearUsuario
 );
+
+
+router.put(
+  "/perfil-completo", auth,
+  [
+    check("phone", "El número de telefono es obligatorio").isNumeric(),
+    check("sex", "Agrega un sexo valido").not().isEmpty(),
+    check("genre", "Agrega un genero valido").not().isEmpty(),
+    check("obj", "Agrega un objetivo valido").not().isEmpty(),
+    check("cm", "Agrega una estatura correcta ").not().isEmpty(),
+    check("kg", "Agrega un peso correcto ").not().isEmpty(),     
+  ],
+  usuarioController.perfilcompleto
+);
+
+
 module.exports = router;
