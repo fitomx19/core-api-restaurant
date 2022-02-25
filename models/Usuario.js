@@ -49,6 +49,10 @@ const UsuariosSchema = mongoose.Schema({
     type:Number,
     trim: true
   },
+  creditos:{
+    type:Number,
+    trim: true
+  },
   registro: {
       type: Date,
       default: Date.now()

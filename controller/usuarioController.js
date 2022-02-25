@@ -72,8 +72,8 @@ exports.perfilcompleto = async  (req,res) => {
         datosActualizados.sexo = sex;
         datosActualizados.genero = genre;
         datosActualizados.meta = obj;
-        datosActualizados.peso = cm;
-        datosActualizados.altura = kg;
+        datosActualizados.peso = kg;
+        datosActualizados.altura = cm;
         datosActualizados.perfil_completo = true;
 
     }
