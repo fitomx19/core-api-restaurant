@@ -105,3 +105,36 @@ exports.perfilcompleto = async  (req,res) => {
         res.status(400).send('Hubo un error');
     }
 }
+
+
+
+exports.direccionCompleta = async  (req,res) => {
+  //revisar si hay errores
+
+  
+    console.log(req.body)
+  
+    //extraer email y password
+    const {_id,cp,estado,ciudad,calle,pais } = req.body;
+    //console.log(req.body)
+    let datosActualizados = {}
+    if(req.body){
+      datosActualizados.pais = pais;
+      datosActualizados.calle = calle;
+      datosActualizados.ciudad = ciudad;
+      datosActualizados.estado = estado;
+      datosActualizados.cp = cp;
+  }
+
+    try {
+        //revisar que el usuario sea unico
+          let update = await Usuario.findByIdAndUpdate({ _id: _id }, { $set : datosActualizados}, { new: true });
+          
+          res.status(200).json( update );
+
+          
+        } catch (error) {
+        console.log(error);
+        res.status(400).send('Hubo un error');
+    }
+}

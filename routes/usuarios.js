@@ -34,4 +34,10 @@ router.put(
 );
 
 
+router.put(
+  "/direccion-completa", auth,
+  usuarioController.direccionCompleta
+);
+
+
 module.exports = router;

@@ -53,6 +53,26 @@ const UsuariosSchema = mongoose.Schema({
     type:Number,
     trim: true
   },
+  pais:{
+    type:String,
+    trim: true
+  },
+  calle:{
+    type:String,
+    trim: true
+  },
+  ciudad:{
+    type:String,
+    trim: true
+  },
+  estado:{
+    type:String,
+    trim: true
+  },
+  cp:{
+    type:String,
+    trim: true
+  },
   registro: {
       type: Date,
       default: Date.now()
