@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "621c2a4dd3b0b97facdc189a"
+  },
+  "nombre": "Plan alimenticio Fit",
+  "precio": 1200,
+  "alimentos": [
+    {
+      "$oid": "61e6fed065857ab162810e3d"
+    },
+    {
+      "$oid": "61e7177765857ab162810e3f"
+    },
+    {
+      "$oid": "61e7184d65857ab162810e45"
+    }
+  ],
+  "creado": {
+    "$date": "2021-02-27T22:31:09.553Z"
+  },
+  "descripcion": "Plan inicial para el manejo fit"
+}]

@@ -16,6 +16,8 @@ alimentosController.crearPlatillo
 
 router.get("/", alimentosController.obtenerPlatillos);
 
+router.get("/planes", alimentosController.obtenerPlanes);
+
 
 
 

@@ -3,11 +3,6 @@ const router = express.Router();
 
 
 
-
-
-
-
-
 router.post('/pogo', (req,res)=>{
     console.log(req.body);
 })

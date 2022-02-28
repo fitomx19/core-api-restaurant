@@ -1,6 +1,6 @@
 const Alimentos = require('../models/Alimentos');
 const {validationResult} = require('express-validator');
-
+const Planes = require('../models/Planes');
 
 exports.crearPlatillo = async  (req,res) => {
     console.log(req.body);
@@ -30,6 +30,17 @@ exports.crearPlatillo = async  (req,res) => {
 exports.obtenerPlatillos = async (req,res) =>{
     try {
         const platillos = await Alimentos.find();
+        //res.json({proyectos})
+        res.json(platillos)
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
+
+exports.obtenerPlanes = async (req,res) =>{
+    try {
+        const platillos = await Planes.find();
         //res.json({proyectos})
         res.json(platillos)
     } catch (error) {
